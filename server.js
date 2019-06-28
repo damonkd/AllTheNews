@@ -1,6 +1,10 @@
 var express = require("express");
 var logger = require("morgan");
 var mongoose = require("mongoose");
+var bodyParser = require("body-parser")
+var methodOveride = require("method-override")
+var handleBars = require("express-handlebars")
+
 
 // Our scraping tools
 // Axios is a promised-based http library, similar to jQuery's Ajax method
@@ -15,6 +19,10 @@ var PORT = 3000;
 
 // Initialize Express
 var app = express();
+app.use(bodyParser.urlencoded({ extended: false}))
+app.use(methodOveride("_method"));
+app.engine("handlebars", handleBars({defaultLayout: "main"}));
+app.set("view engine", "handlebars");
 
 // Configure middleware
 
