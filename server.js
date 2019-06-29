@@ -26,18 +26,18 @@ app.set("view engine", "handlebars");
 
 // Configure middleware
 
-// Use morgan logger for logging requests
-app.use(logger("dev"));
-// Parse request body as JSON
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-// Make public a static folder
-app.use(express.static("public"));
+// // Use morgan logger for logging requests
+// app.use(logger("dev"));
+// // Parse request body as JSON
+// app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
+// // Make public a static folder
+// app.use(express.static("public"));
 
-// Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
+// // Connect to the Mongo DB
+// mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
 
-// Routes
+// // Routes
 
 // A GET route for scraping the echoJS website
 app.get("/scrape", function(req, res) {
