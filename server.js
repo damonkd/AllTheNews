@@ -3,7 +3,7 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 var bodyParser = require("body-parser")
 var methodOveride = require("method-override")
-var handleBars = require("express-handlebars")
+var exphbs = require("express-handlebars")
 
 
 // Our scraping tools
@@ -21,12 +21,24 @@ var PORT = 3000;
 var app = express();
 app.use(bodyParser.urlencoded({ extended: false}))
 app.use(methodOveride("_method"));
-app.engine("handlebars", handleBars({defaultLayout: "main"}));
+app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
+
+// app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
+
+
+
+
+// app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+// app.set("view engine", "handlebars");
+
+
+
 
 // Configure middleware
 
-// // Use morgan logger for logging requests
+// Use morgan logger for logging requests
 // app.use(logger("dev"));
 // // Parse request body as JSON
 // app.use(express.urlencoded({ extended: true }));
@@ -34,10 +46,14 @@ app.set("view engine", "handlebars");
 // // Make public a static folder
 // app.use(express.static("public"));
 
-// // Connect to the Mongo DB
-// mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
+//Connect to the Mongo DB
+mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
 
-// // Routes
+// Routes
+
+app.get('/', function(req, res){
+  res.render('index');
+});
 
 // A GET route for scraping the echoJS website
 app.get("/scrape", function(req, res) {
