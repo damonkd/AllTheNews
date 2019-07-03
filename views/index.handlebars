@@ -1,19 +1,23 @@
 
-<html>
-  </head>
-  <body>
-    <div id="wrapper">
-      <h1>Note Scraper</h1>
-      <h2><i>May the force be with you.</i></h2>
-      <a href="/scrape"> scrape articles</a>
-      <a href="/articles"> show articles</a>
-      <div id="articles"></div>
-      <div id="notes"></div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="app.js"></script>
-  </body>
-</html>    
 
-{{!-- can now scrape the data and show it in raw form with article route using handlebars.
- Still need to format data and dispaly it in handlebars, still need to change website to scrape from --}}
+<h1>Scraped articles</h1>
+
+
+    <h1>it's almost working</h1>
+
+<ul>
+  {{#each Article}}
+    <li>
+      <p>
+        {{this.title}}. {{Article.link}}
+      
+      </p>
+    </li>
+  {{/each}}
+</ul>
+
+    
+  
+
+
+

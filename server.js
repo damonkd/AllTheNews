@@ -4,7 +4,7 @@ var mongoose = require("mongoose");
 var bodyParser = require("body-parser")
 var methodOveride = require("method-override")
 var exphbs = require("express-handlebars")
-
+//var art = require("models/Article.js");
 
 // Our scraping tools
 // Axios is a promised-based http library, similar to jQuery's Ajax method
@@ -27,7 +27,7 @@ app.set("view engine", "handlebars");
 // app.use(express.urlencoded({ extended: true }));
 // app.use(express.json());
 
-
+var scraped = []
 
 
 // app.engine("handlebars", exphbs({ defaultLayout: "main" }));
@@ -95,10 +95,14 @@ app.get("/scrape", function(req, res) {
 // Route for getting all Articles from the db
 app.get("/articles", function(req, res) {
   // Grab every document in the Articles collection
-  db.Article.find({})
-    .then(function(dbArticle) {
-      // If we were able to successfully find Articles, send them back to the client
-      res.json(dbArticle);
+  Article.all(function(data) {
+    var hbsObject = {
+     article: data
+    };
+    console.log(hbsObject);
+    res.render("index", hbsObject);
+
+      //res.render("index", { Article, res });
     })
     .catch(function(err) {
       // If an error occurred, send it to the client
@@ -146,3 +150,4 @@ app.post("/articles/:id", function(req, res) {
 app.listen(PORT, function() {
   console.log("App running on port " + PORT + "!");
 });
+module.exports = scraped;
