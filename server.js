@@ -49,7 +49,7 @@ var scraped = []
 //Connect to the Mongo DB
 
 //mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
-mongoose.connect(process.env.MONGODB_URI ||"mongodb://localhost/unit18Populater");
+mongoose.connect(process.env.MONGODB_URI ||"mongodb://localhost/unit18Populater", { useNewUrlParser: true });
   
 
 
