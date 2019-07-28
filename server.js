@@ -4,6 +4,7 @@ var mongoose = require("mongoose");
 var bodyParser = require("body-parser")
 var methodOveride = require("method-override")
 var exphbs = require("express-handlebars")
+
 //var art = require("models/Article.js");
 
 // Our scraping tools
@@ -48,10 +49,16 @@ var scraped = []
 //Connect to the Mongo DB
 
 //mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
-mongoose.connect(process.env.MONGODB_URI ||"mongodb://localhost/unit18Populater");
+
   
-
-
+const mongoURL = process.env.PROD_MONGODB || "mongodb://localhost:27017/unit18Populater"
+mongoose.connect(mongoURL, {useNewUrlParser: true})
+  .then(() => {
+    console.log("🗄 ==> Successfully connected to mongoDB.");
+  })
+  .catch((err) => {
+    console.log(`Error connecting to mongoDB: ${err}`);
+  });
 
 // Routes
 
@@ -152,7 +159,7 @@ app.post("/articles/:id", function(req, res) {
 });
 
 // Start the server
-app.listen(PORT, function() {
-  console.log("App running on port " + PORT + "!");
+app.listen(PORT, () => {
+  console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
 module.exports = scraped;
