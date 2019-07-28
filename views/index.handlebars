@@ -122,26 +122,6 @@ $(document).on("click", "#savenote", function() {
   $("#titleinput").val("");
   $("#bodyinput").val("");
 });
-server.route({
-  method: 'GET',
-  path: '/index.html',
-  handler: {
-    directory: {
-      path:    __dirname + '/public',
-      listing: false,
-      index:   false
-    }
-  }
-});
-
-
-
-
-
-
-
 </script>
-  
-
 
 
