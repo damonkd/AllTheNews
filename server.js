@@ -19,6 +19,7 @@ var db = require("./models");
 const PORT = process.env.PORT || 3000;
 // Initialize Express
 var app = express();
+app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false}))
 app.use(methodOveride("_method"));
 app.engine("handlebars", exphbs({defaultLayout: "main"}));
@@ -62,9 +63,9 @@ mongoose.connect(mongoURL, {useNewUrlParser: true})
 
 // Routes
 
-app.get('/', function(req, res){
-  res.render('index');
-});
+// app.get('/', function(req, res){
+//   res.render('index');
+// });
 
 // A GET route for scraping the echoJS website
 app.get("/scrape", function(req, res) {
@@ -101,8 +102,8 @@ app.get("/scrape", function(req, res) {
         });
     });
 
-    // Send a message to the client
-    //res.send("Scrape Complete");
+    
+    res.render('index')
   });
 });
 
