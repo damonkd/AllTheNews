@@ -19,7 +19,8 @@
     "handlebars": "^4.1.2",
     "method-override": "^3.0.0",
     "mongoose": "^5.3.16",
-    "morgan": "^1.9.1"
+    "morgan": "^1.9.1",
+    "nodejs": "10.15.1"
   },
   "repository": {
     "type": "git",
