@@ -1,36 +1,28 @@
 {
-  "name": "mongoose_skeleton",
+  "name": "allthenews",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "watch": "nodemon server.js"
-  },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "axios": "^0.18.0",
     "body-parser": "^1.19.0",
-    "cheerio": "^1.0.0-rc.2",
-    "express": "^4.16.3",
     "express-handlebars": "^3.1.0",
     "handlebars": "^4.1.2",
     "method-override": "^3.0.0",
-    "mongoose": "^5.3.16",
-    "morgan": "^1.9.1",
-    "nodejs": "10.15.1"
+    "nodejs": "^0.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/damonkd/AllTheNews.git"
   },
+  "author": "",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/damonkd/AllTheNews/issues"
   },
-  "homepage": "https://github.com/damonkd/AllTheNews#readme"}
-
- 
-
+  "homepage": "https://github.com/damonkd/AllTheNews#readme"
 }
