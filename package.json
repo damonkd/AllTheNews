@@ -31,12 +31,6 @@
   },
   "homepage": "https://github.com/damonkd/AllTheNews#readme"},
 
-  {
-    "name": "myapp",
-    "description": "a really cool app",
-    "version": "1.0.0",
-    "engines": {
-      "node": "10.15.1
-    }
+ 
 
 }
