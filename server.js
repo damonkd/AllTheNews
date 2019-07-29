@@ -52,7 +52,7 @@ var scraped = []
 //mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
 
   
-const mongoURL = process.env.PROD_MONGODB || "mongodb://localhost:27017/unit18Populater"
+const mongoURL = process.env.MONGODB_URI || "mongodb://localhost:27017/unit18Populater"
 mongoose.connect(mongoURL, {useNewUrlParser: true})
   .then(() => {
     console.log("🗄 ==> Successfully connected to mongoDB.");
